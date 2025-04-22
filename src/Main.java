@@ -1,10 +1,5 @@
-import java.util.*;
-import java.util.ListIterator;
-import java.util.PriorityQueue;
-
-
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 //       List<String> myList = new ArrayList<>();
 //       myList.add("Python");
 //       myList.add("java");
@@ -54,12 +49,30 @@ public class Main {
 //        Thread t = new Thread(r);
 //        System.out.println(t.getState());
 
-        Runnable r = new RunnableState();
+//        Runnable r = new RunnableState();
+//        Thread t = new Thread(r);
+//        t.setName("Thread112");
+//        t.start();
+//        for (int i = 0; i < 10; i++) {
+//            System.out.println(t.getState());
+//        }
+//        Runnable r1 = new BlockedState();
+//        Thread t1 = new Thread(r1);
+//        Runnable r2 = new BlockedState();
+//        Thread t2 = new Thread(r2);
+//
+//        t1.start();
+//        t2.start();
+//
+//        Thread.sleep(1000);
+//        System.out.println(t2.getState());
+//        System.exit(0);
+
+        Runnable r = new WaitingState2();
         Thread t = new Thread(r);
-        t.setName("Thread112");
         t.start();
-        for (int i = 0; i < 10; i++) {
-            System.out.println(t.getState());
-        }
+        Thread.sleep(5000);
+        System.out.println(t.getState());
+
     }
 }
