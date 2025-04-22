@@ -46,9 +46,20 @@ public class Main {
 //       personMap.put(person2, 2);
 //       System.out.println("Map of elements : "+personMap);
 
-       for(int i=0; i<100; i++){
-          Thread thread = new Thread(new NumberPrinter(i));
-          thread.start();
-       }
+//       for(int i=0; i<100; i++){
+//          Thread thread = new Thread(new NumberPrinter(i));
+//          thread.start();
+//       }
+//        Runnable r = new NewState();
+//        Thread t = new Thread(r);
+//        System.out.println(t.getState());
+
+        Runnable r = new RunnableState();
+        Thread t = new Thread(r);
+        t.setName("Thread112");
+        t.start();
+        for (int i = 0; i < 10; i++) {
+            System.out.println(t.getState());
+        }
     }
 }
