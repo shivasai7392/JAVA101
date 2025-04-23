@@ -68,11 +68,17 @@ public class Main {
 //        System.out.println(t2.getState());
 //        System.exit(0);
 
-        Runnable r = new WaitingState2();
-        Thread t = new Thread(r);
-        t.start();
-        Thread.sleep(5000);
-        System.out.println(t.getState());
+//        Runnable r = new WaitingState2();
+//        Thread t = new Thread(r);
+//        t.start();
+//        Thread.sleep(5000);
+//        System.out.println(t.getState());
+
+        Runnable r = new TerminatedState();
+        Thread thread = new Thread(r);
+        thread.start();
+        Thread.sleep(1000);
+        System.out.println(thread.getState());
 
     }
 }
