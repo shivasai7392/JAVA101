@@ -1,6 +1,7 @@
 public class HouseBlend extends Beverage{
-    public HouseBlend() {
+    public HouseBlend(SizeType size) {
         description = "HouseBlend";
+        this.size = size;
     }
 
     @Override

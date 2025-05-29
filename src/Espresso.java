@@ -1,6 +1,7 @@
 public class Espresso extends Beverage {
-    public Espresso() {
+    public Espresso(SizeType size) {
         description = "Espresso";
+        this.size = size;
     }
 
     @Override

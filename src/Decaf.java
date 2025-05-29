@@ -1,6 +1,7 @@
 public class Decaf extends Beverage{
-    public Decaf() {
+    public Decaf(SizeType size) {
         description = "Decaf";
+        this.size = size;
     }
 
     @Override

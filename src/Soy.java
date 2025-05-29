@@ -19,7 +19,18 @@ public class Soy extends CondimentsDecorator{
     }
 
     @Override
+    public SizeType getSize() {
+        return beverage.getSize();
+    }
+
+    @Override
     public double cost() {
-        return .15 + beverage.cost();
+        SizeType size = beverage.getSize();
+        if (size.equals(SizeType.TALL)){
+            return 0.1 + beverage.cost();
+        } else if (size.equals(SizeType.VENTI)) {
+            return 0.15 + beverage.cost();
+        }
+        return .20 + beverage.cost();
     }
 }

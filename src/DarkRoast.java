@@ -1,6 +1,7 @@
 public class DarkRoast extends Beverage{
-    public DarkRoast() {
+    public DarkRoast(SizeType size) {
         description = "Dark Roast";
+        this.size = size;
     }
 
     @Override
