@@ -1,4 +1,4 @@
 package JavaObserverDesignpattern;
 
-public class CurrentConditions implement Observer{
-}
+//public class CurrentConditions implement Observer{
+//}
