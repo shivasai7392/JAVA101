@@ -5,11 +5,11 @@ public class FactoryMethodDesign {
         // Create NY style pizza using NYPizzaStore
         PizzaStore nyStore = new NYPizzaStore();
         Pizza nyPizza = nyStore.orderPizza("cheese");
-        System.out.println("Ordered a NY style cheese pizza\n");
+        System.out.println(nyPizza.getName());
 
         // Create Chicago style pizza using ChicagoPizzaStore
         PizzaStore chicagoStore = new ChicagoPizzaStore();
         Pizza chicagoPizza = chicagoStore.orderPizza("cheese");
-        System.out.println("Ordered a Chicago style cheese pizza\n");
+        System.out.println(chicagoPizza.getName());
     }
 }
