@@ -2,22 +2,17 @@ package FactoryDesignpattern;
 
 import java.util.ArrayList;
 
-public class Pizza {
+public abstract class Pizza {
     String name;
-    String dough;
-    String sauce;
+    Dough dough;
+    Sauce sauce;
+    Veggies[] veggies;
+    Cheese cheese;
+    Pepperoni pepperoni;
+
     ArrayList toppings = new ArrayList();
 
-    public void prepare() {
-
-        System.out.println("Preparing " + name);
-        System.out.println("Dough: " + dough);
-        System.out.println("Sauce: " + sauce);
-        System.out.println("Toppings: " + toppings);
-        for (Object topping : toppings) {
-            System.out.println("Topping: " + topping);
-        }
-    }
+    public abstract void prepare();
 
     public void bake() {
         System.out.println("Baking " + name);

@@ -1,10 +1,19 @@
 package FactoryDesignpattern;
 
 public class NYCheesePizza extends Pizza {
-    public NYCheesePizza() {
+    PizzaIngredientFactory ingredientFactory;
+
+    public NYCheesePizza(PizzaIngredientFactory ingredientFactory) {
+        this.ingredientFactory = ingredientFactory;
         name = "NY Style Cheese Pizza";
-        dough = "Extra Thick Dough";
-        sauce = "Marinara Sauce";
         toppings.add("Grated Mozzarella");
+    }
+
+    @Override
+    public void prepare() {
+        System.out.println("Preparing NY Style Cheese Pizza");
+        this.dough = ingredientFactory.createDough();
+        this.sauce = ingredientFactory.createSauce();
+        this.cheese = ingredientFactory.createCheese();
     }
 }
