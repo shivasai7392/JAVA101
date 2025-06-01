@@ -1,4 +1,4 @@
-package MiniDuckSimulator;
+package JavaObserverDesignpattern.MiniDuckSimulator;
 
 public class NormalQuakBehaviour implements QuackingBehaviour {
     @Override

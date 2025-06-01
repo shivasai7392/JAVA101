@@ -1,4 +1,4 @@
-package MiniDuckSimulator;
+package JavaObserverDesignpattern.MiniDuckSimulator;
 
 public abstract class Duck {
     FlyingBehaviour flyingBehaviour;

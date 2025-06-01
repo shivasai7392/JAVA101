@@ -1,4 +1,4 @@
-package MiniDuckSimulator;
+package JavaObserverDesignpattern.MiniDuckSimulator;
 
 public class NoFlyingBehaviour implements FlyingBehaviour {
     @Override
