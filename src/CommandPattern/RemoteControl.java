@@ -6,17 +6,17 @@ import java.util.List;
 public class RemoteControl {
     private final List<Command> onCommands;
     private final List<Command> offCommands;
-    private List<Command> lastCommands;
+    private Command undoCommand;
 
     public RemoteControl() {
         onCommands = new ArrayList<>();
         offCommands = new ArrayList<>();
-        lastCommands = new ArrayList<>();
         Command noCommand = new NoCommand();
         for (int i = 0; i < 7; i++) {
             onCommands.add(noCommand);
             offCommands.add(noCommand);
         }
+        undoCommand = noCommand;
     }
 
     public void setCommand(int slot, Command onCommand, Command offCommand) {
@@ -26,20 +26,25 @@ public class RemoteControl {
 
     public void onbuttonWasPressed(int slot) {
         onCommands.get(slot).execute();
-        lastCommands.add(onCommands.get(slot));
+        undoCommand = onCommands.get(slot);
     }
 
     public void offbuttonWasPressed(int slot) {
         offCommands.get(slot).execute();
-        lastCommands.add(offCommands.get(slot));
+       undoCommand = offCommands.get(slot);
     }
 
     public void undobuttonWasPressed() {
-        if (lastCommands.isEmpty()) {
-            return;
+        undoCommand.undo();
+    }
+
+    public String toString(){
+        StringBuilder str = new StringBuilder();
+        str.append("\n-----------Remote Control----------\n");
+        for (int i = 0; i < onCommands.size(); i++) {
+            str.append("[slot ").append(i).append("] ").append(onCommands.get(i).getClass().getName()).append("   ").append(offCommands.get(i).getClass().getName()).append("\n");
         }
-        Command lastCommand = lastCommands.get(lastCommands.size() - 1);
-        lastCommand.undo();
-        lastCommands.remove(lastCommands.size() - 1);
+        str.append("[undo] ").append(undoCommand.getClass().getName());
+        return str.toString();
     }
 }
