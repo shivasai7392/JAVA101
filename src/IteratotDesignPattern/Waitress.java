@@ -14,22 +14,19 @@ public class Waitress {
     }
 
     public void printMenu() {
-        ArrayList<MenuItem> menuItems = pancakeHouseMenu.getMenuItems();
-        for (MenuItem menuItem : menuItems) {
+        DinerMenuIterator dinerMenuIterator = this.dinerMenu.iterator();
+        printMenu(dinerMenuIterator);
+        PancakeHouseMenuIterator pancakeHouseMenuIterator = this.pancakeHouseMenu.iterator();
+        printMenu(pancakeHouseMenuIterator);
+    }
+
+    public void printMenu(Iterator<MenuItem> iterator) {
+        while (iterator.hasNext()) {
+            MenuItem menuItem = iterator.next();
             System.out.println(menuItem.getName());
             System.out.println(menuItem.getDescription());
             System.out.println(menuItem.getPrice());
         }
-
-        MenuItem[] menuItemArray = dinerMenu.getMenuItems();
-        for (MenuItem menuItem : menuItemArray) {
-            if (menuItem != null) {
-                System.out.println(menuItem.getName());
-                System.out.println(menuItem.getDescription());
-                System.out.println(menuItem.getPrice());
-            }
-        }
-
     }
 
 
