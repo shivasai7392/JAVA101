@@ -1,8 +1,10 @@
 package IteratotDesignPattern;
 
 import java.util.Hashtable;
+import java.util.Iterator;
 
-public class CafeMenu {
+public class CafeMenu implements Menu {
+
     Hashtable<String, MenuItem> menuItems = new Hashtable<String, MenuItem>();
 
     public CafeMenu() {
@@ -21,7 +23,12 @@ public class CafeMenu {
         menuItems.put(name, menuItem);
     }
 
-    public Hashtable<String, MenuItem> getMenuItems() {
-        return menuItems;
+//    public Hashtable<String, MenuItem> getMenuItems() {
+//        return menuItems;
+//    }
+
+    @Override
+    public Iterator createiterator() {
+        return menuItems.values().iterator();
     }
 }
