@@ -1,6 +1,10 @@
 package IteratotDesignPattern;
 
-public class DinerMenu {
+import java.util.Iterator;
+
+public class DinerMenu implements Menu {
+
+
     static final int MAX_ITEMS = 6;
     MenuItem[] menuItems;
     int numberOfItems = 0;
@@ -23,7 +27,7 @@ public class DinerMenu {
         }
     }
 
-    public DinerMenuIterator iterator() {
+    public Iterator createiterator() {
         return new DinerMenuIterator(menuItems);
     }
 }
