@@ -2,7 +2,7 @@ package IteratotDesignPattern;
 
 import java.util.Iterator;
 
-public class DinerMenuIterator implements Iterator {
+public class DinerMenuIterator implements Iterator<MenuItem> {
 
     MenuItem[] menuItemArray;
     int position = 0;
@@ -12,14 +12,11 @@ public class DinerMenuIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-        if (position >= menuItemArray.length || menuItemArray[position] == null) {
-            return false;
-        }
-        return true;
+        return position < menuItemArray.length && menuItemArray[position] != null;
     }
 
     @Override
-    public Object next() {
+    public MenuItem next() {
        MenuItem menuItem = menuItemArray[position];
        position++;
        return menuItem;

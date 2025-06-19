@@ -19,7 +19,7 @@ public class PancakeHouseMenu implements Menu {
         menuItems.add(menuItem);
     }
 
-    public Iterator createiterator() {
+    public Iterator<MenuItem> createiterator() {
         return new PancakeHouseMenuIterator(menuItems);
     }
 }

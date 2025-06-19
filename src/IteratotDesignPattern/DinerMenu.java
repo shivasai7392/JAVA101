@@ -1,5 +1,6 @@
 package IteratotDesignPattern;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class DinerMenu implements Menu {
@@ -8,7 +9,10 @@ public class DinerMenu implements Menu {
     static final int MAX_ITEMS = 6;
     MenuItem[] menuItems;
     int numberOfItems = 0;
+    DessertMenu dessertMenu;
+
     public DinerMenu() {
+        this.dessertMenu = new DessertMenu();
         menuItems = new MenuItem[MAX_ITEMS];
         addItem("Vegetarian", "Vegetarian", 0.95, true);
         addItem("Sandwich", "Sandwich", 0.95, true);
@@ -27,7 +31,10 @@ public class DinerMenu implements Menu {
         }
     }
 
-    public Iterator createiterator() {
+    public Iterator<MenuItem> createiterator() {
+        ArrayList<MenuItem> items = new ArrayList<MenuItem>();
+        items.addAll(items);
+        items.addAll(this.dessertMenu.menuItems.values());
         return new DinerMenuIterator(menuItems);
     }
 }

@@ -3,7 +3,7 @@ package IteratotDesignPattern;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class PancakeHouseMenuIterator implements Iterator {
+public class PancakeHouseMenuIterator implements Iterator<MenuItem> {
     ArrayList<MenuItem> menuItems;
     int position = 0;
 
@@ -13,14 +13,11 @@ public class PancakeHouseMenuIterator implements Iterator {
 
     @Override
     public boolean hasNext() {
-        if (position < menuItems.size()) {
-            return true;
-        }
-        return false;
+        return position < menuItems.size();
     }
 
     @Override
-    public Object next() {
+    public MenuItem next() {
         return menuItems.get(position++);
     }
 }
