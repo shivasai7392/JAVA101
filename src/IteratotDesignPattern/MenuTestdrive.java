@@ -4,15 +4,23 @@ import java.util.ArrayList;
 
 public class MenuTestdrive {
     public static void main(String[] args) {
-        ArrayList<Menu> menuArrayList = new ArrayList<>();
 
-        PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
-        menuArrayList.add(pancakeHouseMenu);
-        DinerMenu dinerMenu = new DinerMenu();
-        menuArrayList.add(dinerMenu);
-        CafeMenu cafeMenu = new CafeMenu();
+        MenuComponent allMenus = new Menu("All MENUS", "All Menus Combined");
 
-        Waitress waitress = new Waitress(menuArrayList);
-        waitress.printMenu();
+        MenuComponent dinnerMenu = new DinerMenu();
+        allMenus.add(dinnerMenu);
+
+        MenuComponent dessertMenu = new DessertMenu();
+        dinnerMenu.add(dessertMenu);
+
+        MenuComponent CafeMenu = new CafeMenu();
+        allMenus.add(CafeMenu);
+
+        MenuComponent pancakeHouseMenu = new PancakeHouseMenu();
+        allMenus.add(pancakeHouseMenu);
+
+        allMenus.print();
+
+
     }
 }

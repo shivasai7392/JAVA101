@@ -1,6 +1,8 @@
 package IteratotDesignPattern;
 
-public class MenuItem {
+import java.util.Iterator;
+
+public class MenuItem extends MenuComponent{
     String name;
     String description;
     double price;
@@ -27,5 +29,15 @@ public class MenuItem {
 
     public boolean isVegetarian() {
         return vegetarian;
+    }
+
+    @Override
+    public void print() {
+        if (vegetarian) {
+            System.out.print("V");
+        }
+        System.out.print(" Name: " + this.getName());
+        System.out.print("," + this.getDescription());
+        System.out.print("," + this.getPrice()+"\n\n");
     }
 }
