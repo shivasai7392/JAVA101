@@ -19,7 +19,10 @@ public class MenuTestdrive {
         MenuComponent pancakeHouseMenu = new PancakeHouseMenu();
         allMenus.add(pancakeHouseMenu);
 
-        allMenus.print();
+//        allMenus.print();
+
+        Waitress waitress = new Waitress(allMenus);
+        waitress.printVegetarianMenu();
 
 
     }

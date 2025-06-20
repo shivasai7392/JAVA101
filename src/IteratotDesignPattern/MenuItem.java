@@ -40,4 +40,9 @@ public class MenuItem extends MenuComponent{
         System.out.print("," + this.getDescription());
         System.out.print("," + this.getPrice()+"\n\n");
     }
+
+    @Override
+    public Iterator<MenuComponent> getIterator() {
+        return new NullIterator();
+    }
 }
